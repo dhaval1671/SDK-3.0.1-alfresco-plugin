@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Core and miscellaneous bean definitions -->
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd         
+						http://www.springframework.org/schema/util	
+						http://www.springframework.org/schema/util/spring-util-3.0.xsd
+						http://www.springframework.org/schema/context
+        				http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="gov.uspto.trademark.cms.repo"/>
+
+	<bean class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean" id="documentServiceFactory">
+ 		<property name="serviceLocatorInterface" value="gov.uspto.trademark.cms.repo.services.DocumentServiceFactory"/>
+	</bean>
+	
+	<util:map id="documentServiceMap">
+		<entry key="note" value="NoteDocService"></entry>
+		<entry key="attachment" value="AttachmentDocService"></entry>
+		<entry key="office-action" value="OfficeActionDocService"></entry>
+		<entry key="legacy" value="LegacyDocService"></entry>
+		<entry key="notice" value="NoticeDocService"></entry>
+		<entry key="evidence" value="EvidenceDocService"></entry>
+		<entry key="response" value="ResponseDocService"></entry>
+		<entry key="summary" value="SummaryDocService"></entry>
+		<entry key="receipt" value="ReceiptDocService"></entry>
+		<entry key="signature" value="SignatureDocService"></entry>
+		<entry key="specimen" value="SpecimenDocService"></entry>
+		<entry key="ref-link" value="PsuedoNodeService"></entry>
+        <entry key="mark" value="MarkDocService"></entry>
+        <entry key="ticrsDocument" value="TicrsDocumentDocService"></entry>
+        <entry key="withdrawal" value="WithdrawalDocService"></entry>
+        <entry key="application" value="ApplicationDocService"></entry>                
+        <entry key="registration-certificate" value="RegistrationCertificateDocService"></entry>
+        <entry key="updated-registration-certificate" value="UpdatedRegistrationCertificateDocService"></entry>
+        <entry key="teaspdf" value="TeasPdfDocService"></entry>
+    </util:map>
+
+    <util:map id="markMimeTypeMap">
+        <entry value="multimedia" key="audio/x-wav"></entry>
+        <entry value="multimedia" key="audio/wav"></entry>
+        <entry value="multimedia" key="audio/x-mpeg-3"></entry>
+        <entry value="multimedia" key="audio/mpeg"></entry>
+        <entry value="multimedia" key="audio/mpeg3"></entry>
+        <entry value="multimedia" key="video/x-ms-wmv"></entry>
+        <entry value="multimedia" key="audio/x-ms-wma"></entry>
+        <entry value="multimedia" key="video/x-msvideo"></entry>
+		<entry value="multimedia" key="application/x-troff-msvideo"></entry>
+		<entry value="multimedia" key="video/avi"></entry>
+		<entry value="multimedia" key="video/mpeg"></entry>
+		<entry value="image" key="image/tiff"></entry>
+		<entry value="image" key="image/jpeg"></entry>
+		<entry value="image" key="image/pjpeg"></entry>
+		<entry value="image" key="image/png"></entry>
+	</util:map>
+	
+	<bean class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean" id="publicationServiceFactory">
+ 		<property name="serviceLocatorInterface" value="gov.uspto.trademark.cms.repo.services.PublicationServiceFactory"/>
+	</bean>	
+	
+	<util:map id="publicationServiceMap">
+		<entry key="official-gazette" value="EogDocService"></entry>
+		<entry key="id-manual" value="IdmanualDocService"></entry>
+	</util:map>	
+	
+	<bean class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean" id="madridServiceFactory">
+ 		<property name="serviceLocatorInterface" value="gov.uspto.trademark.cms.repo.services.MadridServiceFactory"/>
+	</bean>		
+	
+	<util:map id="madridServiceMap">
+        <entry key="madrid" value="MadridDocService"></entry>
+	</util:map>		
+
+	<bean class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean" id="legalProceedingServiceFactory">
+ 		<property name="serviceLocatorInterface" value="gov.uspto.trademark.cms.repo.services.LegalProceedingServiceFactory"/>
+	</bean>	
+
+	<util:map id="legalProceedingServiceMap">
+        <entry key="pleading" value="PleadingDocService"></entry>
+        <entry key="motion" value="MotionDocService"></entry>
+        <entry key="exhibit" value="ExhibitDocService"></entry>
+        <entry key="brief" value="BriefDocService"></entry>
+        <entry key="order" value="OrderDocService"></entry>
+        <entry key="decision" value="DecisionDocService"></entry>
+        <entry key="undesignated" value="UndesignatedDocService"></entry>
+	</util:map>	
+
+	
+</beans>

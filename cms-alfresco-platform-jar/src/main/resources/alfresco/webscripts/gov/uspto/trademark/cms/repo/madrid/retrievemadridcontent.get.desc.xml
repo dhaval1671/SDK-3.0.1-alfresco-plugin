@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve Madrid Content</shortname>
+    <description>Returns Madrid content</description>
+    <url>/cms/rest/madridib/{id}/{docType}/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- eFile webscript definitions -->
+<beans>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.eogtemplate.createeogtemplate.put"
+          class="gov.uspto.trademark.cms.repo.webscripts.eogtemplate.CreateEogTemplateWebScript"
+          parent="webscript">
+    </bean>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.eogtemplate.retrieveeogtemplate.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.eogtemplate.RetrieveEogTemplateWebScript"
+          parent="webscript">
+    </bean>
+ 
+        
+    
+</beans>

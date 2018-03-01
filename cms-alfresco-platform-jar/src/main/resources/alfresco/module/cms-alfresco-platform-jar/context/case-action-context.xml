@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- CMS case Actions -->
+<beans>
+
+    <bean id="legacySyncManager"
+          class="gov.uspto.trademark.cms.repo.action.LegacySyncManager"
+          parent="action-executer">
+        <property name="nodeService" ref="NodeService"/>
+        <property name="caseService" ref="caseServiceBase"/>
+    </bean>
+    
+    <bean id="deleteLegacySyncManager"
+          class="gov.uspto.trademark.cms.repo.action.DeleteLegacySyncManager"
+          parent="action-executer">
+        <property name="nodeService" ref="NodeService"/>
+        <property name="caseService" ref="caseServiceBase"/>
+    </bean>    
+    
+    <bean id="cron-job-runner" class="gov.uspto.trademark.cms.repo.action.DeleteFileAction"
+          parent="action-executer">
+        <property name="nodeService">
+            <ref bean="nodeService"/>
+        </property>
+    </bean>
+
+</beans>

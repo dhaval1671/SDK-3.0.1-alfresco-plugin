@@ -1,0 +1,10 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve Document Content</shortname>
+    <description>Returns the Document content</description>
+    <url>/cms/rest/case/ticrs/{docType}/{versionFolder}/{fileName}</url>
+    <authentication>admin</authentication>
+    <transaction>none</transaction>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

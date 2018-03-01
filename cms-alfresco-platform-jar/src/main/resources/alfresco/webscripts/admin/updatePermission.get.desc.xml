@@ -1,0 +1,10 @@
+<webscript>
+	<shortname>Update Permission</shortname>
+	<description>Update Default Permission</description>
+	<family>CMS Administration</family>
+	<url>/admin/updatepermission</url>
+	<format default="json"/>
+	<authentication>admin</authentication>
+</webscript>
+
+	

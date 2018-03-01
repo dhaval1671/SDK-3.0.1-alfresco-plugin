@@ -1,0 +1,14 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Create EOG Template</shortname>
+    <description><![CDATA[
+		Create EOG Template:<br/>
+		-----------<br/>
+		Alfresco URL: PUT: localhost:8080/alfresco/s/cms/rest/drive/eogtemplate/{id}/{fileName}<br/>  
+		-----------<br/>  
+	]]></description>
+    <url>/cms/rest/drive/eogtemplate/{id}/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

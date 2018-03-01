@@ -1,0 +1,15 @@
+Putting Your Shoes On
+
+One of the confusing things about Shoes is that it comes in a few flavors.
+
+Red Shoes – the original Shoes platform
+Blue Shoes – QT implementation
+Purple Shoes – JRuby/SWT implementation
+Green Shoes – pure Ruby/GTK2 implementation
+Shoes4 – the next version of Shoes
+
+AND And and
+
+Ram and Shyam
+
+Ram Ghanshyam

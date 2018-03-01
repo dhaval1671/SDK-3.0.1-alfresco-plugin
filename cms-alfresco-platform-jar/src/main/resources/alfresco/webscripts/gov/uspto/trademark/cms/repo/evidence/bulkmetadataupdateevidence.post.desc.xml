@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Bulk Metadata Update Evidences</shortname>
+    <description>Update metadata of multiple Evidences in a given serial number</description>
+    <url>/cms/rest/case/{sn}/evidences</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>All Marks Versioned metadata</shortname>
+    <description>Returns a list of all marks versioned metadata</description>
+    <url>/cms/rest/case/{sn}/marks/versions/metadata</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

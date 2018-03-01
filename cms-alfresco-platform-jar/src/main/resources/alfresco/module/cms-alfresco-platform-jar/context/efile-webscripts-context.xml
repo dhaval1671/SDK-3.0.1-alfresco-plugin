@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- eFile webscript definitions -->
+<beans>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.efile.createefile.put"
+          class="gov.uspto.trademark.cms.repo.webscripts.efile.CreateEfileWebScript"
+          parent="webscript">
+    </bean>
+ 
+    <bean id="webscript.gov.uspto.trademark.cms.repo.efile.efilecontent.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.efile.RetrieveEfileContentWebScript"
+          parent="webscript">
+    </bean>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.efile.efilemetadata.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.efile.RetrieveEfileMetadataWebScript"
+          parent="webscript">
+    </bean>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.efile.retrieveallefiledocsfrcase.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.efile.RetrieveAllEfileDocsFrCaseWebScript"
+          parent="webscript">
+        <property name="efileService" ref="EfileServiceBase" />
+    </bean>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.efile.efileSubmission.post"
+          class="gov.uspto.trademark.cms.repo.webscripts.efile.EfileSubmissionWebScript"
+          parent="webscript">
+    </bean>    
+    
+</beans>

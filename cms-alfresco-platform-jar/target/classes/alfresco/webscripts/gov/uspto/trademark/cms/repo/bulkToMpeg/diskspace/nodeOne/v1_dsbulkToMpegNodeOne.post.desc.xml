@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Picks up multimedia and converts them to mp4</shortname>
+    <description>picks up mark/specimen/evidence/legacy and converts them to mp4</description>
+    <url>/cms/bulk/ds/{batchSize}/multimedia/transform</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

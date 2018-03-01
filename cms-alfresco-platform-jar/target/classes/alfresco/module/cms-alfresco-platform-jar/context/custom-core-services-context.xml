@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- Core and miscellaneous bean definitions -->
+<beans>
+
+    <bean id="caseServiceBase" class="gov.uspto.trademark.cms.repo.services.impl.CaseServiceBase">
+    	<property name="serviceRegistry" ref="ServiceRegistry" />
+    	<property name="repositoryHelper" ref="repositoryHelper" />
+    </bean>
+
+    <bean id="evidenceServiceBase" class="gov.uspto.trademark.cms.repo.services.impl.cabinet.cmscase.base.doctype.EvidenceServiceBase">
+        <property name="serviceRegistry" ref="ServiceRegistry" />
+        <property name="repositoryHelper" ref="repositoryHelper" />
+        <property name="caseService" ref="caseServiceBase" />
+        <property name="versionService" ref="versionServiceBase" />
+    </bean>
+
+    <bean id="EvidenceLibraryImplService" class="gov.uspto.trademark.cms.repo.services.impl.cabinet.cmscase.base.doctype.EvidenceLibraryImplService">
+        <property name="serviceRegistry" ref="ServiceRegistry" />
+        <property name="repositoryHelper" ref="repositoryHelper" />
+        <property name="caseService" ref="caseServiceBase" />
+        <property name="versionService" ref="versionServiceBase" />
+    </bean>
+ 
+    <bean id="LegacyTicrsImplService" class="gov.uspto.trademark.cms.repo.services.impl.cabinet.cmscase.base.doctype.LegacyTicrsImplService">
+        <property name="serviceRegistry" ref="ServiceRegistry" />
+        <property name="repositoryHelper" ref="repositoryHelper" />
+        <property name="caseService" ref="caseServiceBase" />
+        <property name="versionService" ref="versionServiceBase" />
+    </bean> 
+    
+    <bean id="WebcaptureImplService" class="gov.uspto.trademark.cms.repo.services.impl.cabinet.cmscase.base.doctype.WebcaptureImplService">
+        <property name="serviceRegistry" ref="ServiceRegistry" />
+        <property name="repositoryHelper" ref="repositoryHelper" />
+        <property name="caseService" ref="caseServiceBase" />
+        <property name="versionService" ref="versionServiceBase" />
+    </bean>    
+    
+    <bean id="versionServiceBase" class="gov.uspto.trademark.cms.repo.services.impl.VersionServiceBase">
+        <property name="serviceRegistry" ref="ServiceRegistry" />
+        <property name="repositoryHelper" ref="repositoryHelper" />
+    </bean>
+    
+    <bean id="imageMarkServiceBase" class="gov.uspto.trademark.cms.repo.services.impl.cabinet.cmscase.base.doctype.ImageMarkServiceBase">
+    	<property name="serviceRegistry" ref="ServiceRegistry" />
+    	<property name="repositoryHelper" ref="repositoryHelper" />
+    	<property name="caseService" ref="caseServiceBase" />
+    </bean>
+    
+</beans>

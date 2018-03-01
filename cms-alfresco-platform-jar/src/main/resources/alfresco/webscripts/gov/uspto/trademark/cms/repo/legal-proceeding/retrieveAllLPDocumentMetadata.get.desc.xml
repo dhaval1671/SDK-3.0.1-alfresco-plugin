@@ -1,0 +1,10 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve metadata for all legal-proceeding documents present inside proceeding number</shortname>
+    <description>Retrieve metadata for all legal-proceeding docs</description>
+    <url>/cms/rest/legal-proceeding/{id}/documents/metadata?filterKey={filter-key?}&amp;filterValue={filter-value?}&amp;accessLevel={accessLevel?}</url>
+    <authentication>admin</authentication>
+    <transaction>none</transaction>    
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

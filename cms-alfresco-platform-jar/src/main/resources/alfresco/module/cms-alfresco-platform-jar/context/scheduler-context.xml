@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+
+    <bean id="templateActionModelFactory" class="org.alfresco.repo.action.scheduled.FreeMarkerWithLuceneExtensionsModelFactory">
+        <property name="serviceRegistry">
+            <ref bean="ServiceRegistry"/>
+        </property>
+    </bean>
+
+    <bean id="cronJobDefinition"
+          class="gov.uspto.trademark.cms.repo.action.DeleteFileActionDefinition">
+        <property name="transactionMode">
+            <value>ISOLATED_TRANSACTIONS</value>
+        </property>
+        <property name="searchService">
+            <ref bean="SearchService" />
+        </property>
+        <property name="templateService">
+            <ref bean="TemplateService" />
+        </property>
+        <property name="queryLanguage">
+            <value>lucene</value>
+        </property>
+        <property name="stores">
+            <list>
+                <value>workspace://SpacesStore</value>
+            </list>
+        </property>
+        <property name="cronExpression">
+            <value>${eFile-delete-cron-expr}</value>
+        </property>
+        <property name="jobName">
+            <value>jobA</value>
+        </property>
+        <property name="jobGroup">
+            <value>jobGroup_ver</value>
+        </property>
+        <property name="triggerName">
+            <value>triggerA_ver</value>
+        </property>
+        <property name="triggerGroup">
+            <value>triggerGroup_ver</value>
+        </property>
+        <property name="scheduler">
+            <ref bean="schedulerFactory" />
+        </property>
+        <property name="actionService">
+            <ref bean="ActionService" />
+        </property>
+        <property name="templateActionModelFactory">
+            <ref bean="templateActionModelFactory" />
+        </property>
+        <property name="templateActionDefinition">
+            <ref bean="cron-job-runner-template" />
+        </property>
+        <property name="transactionService">
+            <ref bean="TransactionService" />
+        </property>
+        <property name="runAsUser">
+            <value>System</value>
+        </property>
+    </bean>
+
+    <bean id="cron-job-runner-template"
+          class="org.alfresco.repo.action.scheduled.SimpleTemplateActionDefinition">
+        <property name="actionName">
+            <value>cron-job-runner</value>
+        </property>
+        <property name="parameterTemplates">
+            <map>
+                <entry>
+                    <key>
+                        <value>aspect-name</value>
+                    </key>
+                    <value>{http://www.alfresco.org/model/content/1.0}versionable</value>
+                </entry>
+            </map>
+        </property>
+        <property name="templateActionModelFactory">
+            <ref bean="templateActionModelFactory" />
+        </property>
+        <property name="dictionaryService">
+            <ref bean="DictionaryService" />
+        </property>
+        <property name="actionService">
+            <ref bean="ActionService" />
+        </property>
+        <property name="templateService">
+            <ref bean="TemplateService" />
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- Core and miscellaneous bean definitions -->
+<beans>
+
+    <bean id="webscript.gov.uspto.trademark.cms.repo.docLib.evidenceLibrary.evidence2afileAndFolderContents.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.doclib.evidencelibrary.Evidence2aFileAndFolderContentsWebScript"
+          parent="webscript">
+    </bean>
+    
+</beans>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+<!-- validate webscript definitions 
+
+NOT USED TO BE DELETED IN THE NEXT ITERATION OF CODE CHANGES.
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.bulkToMpeg.diskspace.createsamplemultimedia.put"
+          class="gov.uspto.trademark.cms.repo.webscripts.bulk.mp4.transformation.diskspace.create.CreateSampleMultimediaFilesWebScript"
+          parent="webscript">
+          <property name="apiSecurityKey" value="=g^/createsample~'3B" />
+    </bean>    
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.bulkToMpeg.diskspace.nodeOne.v1_dsbulkToMpegNodeOne.post" 
+	    class="gov.uspto.trademark.cms.repo.webscripts.bulk.mp4.transformation.diskspace.nodeone.DSNodeOneBulkTransformToMpegWebScript" 
+	    parent="webscript">
+	    <property name="apiSecurityKey" value="xB;!.V6N8ry5q2V" />
+        <property name="repositoryHelper" ref="repositoryHelper" />
+    </bean>    
+-->    
+</beans>

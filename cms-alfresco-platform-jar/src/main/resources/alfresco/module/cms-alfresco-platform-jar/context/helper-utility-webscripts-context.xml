@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- validate webscript definitions -->
+<beans>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.utility.helperUtility.post" 
+	    class="gov.uspto.trademark.cms.repo.webscripts.utility.HelperUtilityWebScript" 
+	    parent="webscript">
+	    <property name="apiSecurityKey" value="P0bl162t10N2" />
+        <property name="repositoryHelper" ref="repositoryHelper" />
+        <property name="authenticationContext" ref="authenticationContext" />        
+    </bean>
+    
+</beans>

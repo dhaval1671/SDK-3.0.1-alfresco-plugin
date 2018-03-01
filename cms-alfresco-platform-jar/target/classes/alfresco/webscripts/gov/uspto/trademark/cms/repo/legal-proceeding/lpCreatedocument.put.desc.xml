@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Create Legal-Proceeeding document</shortname>
+    <description>Create Legal-Proceeeding document</description>
+    <url>/cms/rest/legal-proceeding/{id}/{docType}/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

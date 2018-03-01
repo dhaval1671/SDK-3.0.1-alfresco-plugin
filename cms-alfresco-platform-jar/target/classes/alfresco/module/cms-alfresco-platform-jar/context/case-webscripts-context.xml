@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- Case folder/s related webscript definitions -->
+<beans>
+
+    <bean id="webscript.gov.uspto.trademark.cms.repo.case.casedocumentmetadata.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.cases.fetchalldocs.CaseDocumentsMetadataWebScript"
+          parent="webscript">
+        <property name="caseService" ref="caseServiceBase"/>
+    </bean>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.case.caseFoldersAlfSolrSearch.post"
+          class="gov.uspto.trademark.cms.repo.webscripts.cases.search.SearchCaseFoldersWebScript"
+          parent="webscript">
+        <property name="caseService" ref="caseServiceBase"/>
+    </bean>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.case.caseFoldersExternalSolrSearch.post"
+          class="gov.uspto.trademark.cms.repo.webscripts.cases.search.SearchExternalSolrWebScript"
+          parent="webscript">
+        <property name="externalSolrHost" value="localhost:8983"/>
+    </bean>
+
+     <bean id="webscript.gov.uspto.trademark.cms.repo.ticrs.casemetadata.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.ticrs.CaseMetadataWebScript"
+          parent="webscript">
+        <property name="caseService" ref="caseServiceBase"/>
+        <property name="nodeService" ref="NodeService"/>
+    </bean>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.ticrs.ticrsDeleteDocument.delete"
+          class="gov.uspto.trademark.cms.repo.webscripts.ticrs.TicrsAdminDeleteWebScript"
+          parent="webscript">
+    </bean>  
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.ticrs.retrieveCaseTicrsFileNames.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.ticrs.TicrsRetrieveCaseFileNamesWebScript"
+          parent="webscript">
+             <property name="caseService" ref="caseServiceBase"/>
+    </bean>
+
+</beans>

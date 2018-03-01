@@ -1,0 +1,11 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Create Publication</shortname>
+    <description><![CDATA[
+		Create Publication eOG and ID Manual. <br/>
+	]]></description>
+    <url>/cms/rest/publication/{id}/{pub}/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

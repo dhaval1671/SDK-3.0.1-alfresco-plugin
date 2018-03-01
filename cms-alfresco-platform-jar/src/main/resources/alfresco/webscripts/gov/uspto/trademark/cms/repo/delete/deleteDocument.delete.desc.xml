@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Delete Document</shortname>
+    <description>Delete Document for given doc id</description>
+    <url>/cms/rest/v1/case/{id}/{docType}/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

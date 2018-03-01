@@ -1,0 +1,8 @@
+<webscript>
+   <shortname>Update files</shortname>
+   <description>Uploads files to a given path.</description>
+   <url>/admin/files/upload/{fileName}/{filePath}</url>
+   <authentication>guest</authentication>
+   <transaction>required</transaction>
+   <family>cms</family>
+</webscript>

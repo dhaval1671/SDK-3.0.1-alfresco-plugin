@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Delete Evidences</shortname>
+    <description>Delete Evidences from given serial number for given file names.</description>
+    <url>/cms/rest/case/{sn}/evidences/clear</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

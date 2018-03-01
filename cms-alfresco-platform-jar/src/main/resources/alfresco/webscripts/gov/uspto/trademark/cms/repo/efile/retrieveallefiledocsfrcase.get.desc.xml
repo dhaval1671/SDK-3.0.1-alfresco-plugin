@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>EFile Versions</shortname>
+    <description>Returns a all e-file document with its metadata.</description>
+    <url>/cms/rest/drive/e-file/{id}/documents/metadata</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

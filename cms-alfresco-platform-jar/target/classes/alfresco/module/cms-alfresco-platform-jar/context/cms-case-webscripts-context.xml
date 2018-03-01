@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- Case folder/s related webscript definitions -->
+<beans>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.create.createdocument.put"
+          class="gov.uspto.trademark.cms.repo.webscripts.create.CreateWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.retrieve.retrievecontent.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.retrieve.RetrieveContentWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.retrieve.retrievedocumentattachment.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.retrieve.RetrieveDocumentAttachmentWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.retrieve.retrievemetadata.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.retrieve.RetrieveMetadataWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.retrieve.retrieveversionslist.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.retrieve.RetrieveVersionsListWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.update.updatedocument.post"
+          class="gov.uspto.trademark.cms.repo.webscripts.update.UpdateWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.update.updatedocumentmetadata.post"
+          class="gov.uspto.trademark.cms.repo.webscripts.update.UpdateMetadataWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.redaction.redactDocument.post"
+          class="gov.uspto.trademark.cms.repo.webscripts.redaction.RedactDocumentWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.redaction.retrieveOriginalContent.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.redaction.RetrieveOriginalContentWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.redaction.redactionRestoreOriginal.delete"
+          class="gov.uspto.trademark.cms.repo.webscripts.redaction.RestoreOriginalWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.redaction.retrieveOriginalMetadata.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.redaction.RetrieveOriginalMetadataWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.redaction.retrieveRedactMetadata.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.redaction.RetrieveRedactMetadataWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.redaction.retrieveRedactContent.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.redaction.RetrieveRedactContentWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.delete.deleteDocument.delete"
+          class="gov.uspto.trademark.cms.repo.webscripts.delete.DeleteWebScript"
+          parent="webscript">
+    </bean>    
+   
+</beans>

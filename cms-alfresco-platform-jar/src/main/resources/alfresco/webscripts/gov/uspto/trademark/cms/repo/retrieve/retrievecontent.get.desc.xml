@@ -1,0 +1,10 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve Document Content</shortname>
+    <description>Returns the Document content</description>
+    <url>/cms/rest/v1/case/{id}/{docType}/{fileName}?version={version-number}&amp;accessLevel={accessLevel?}</url>
+    <authentication>admin</authentication>
+    <transaction>none</transaction>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

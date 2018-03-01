@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Copy Evidences</shortname>
+    <description>Copy Evidences from one serial number to another</description>
+    <url>/cms/rest/case/{sn}/evidences/copy</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

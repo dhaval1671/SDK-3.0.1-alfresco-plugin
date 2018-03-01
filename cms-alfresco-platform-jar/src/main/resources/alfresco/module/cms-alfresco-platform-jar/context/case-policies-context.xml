@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- CMS case policies -->
+<beans>
+
+<!--      <bean id="businessVersionPolicy"
+          class="gov.uspto.trademark.cms.repo.policies.BusinessVersionPolicy"
+          init-method="init">
+        <property name="policyComponent">
+            <ref bean="policyComponent" />
+        </property>
+        <property name="serviceRegistry" ref="ServiceRegistry" />
+    </bean> -->
+    
+     <bean id="markRenditionsPolicy"
+		  class="gov.uspto.trademark.cms.repo.policies.MarkRenditionsPolicy"
+		  init-method="init">
+		<property name="policyComponent">
+			<ref bean="policyComponent" />
+		</property>
+		<property name="imageMarkService" ref="imageMarkServiceBase" />
+	</bean>    
+	
+ 	<bean id="legacySyncPolicy"
+			  class="gov.uspto.trademark.cms.repo.policies.LegacySyncPolicy"
+			  init-method="init">
+			<property name="policyComponent">
+				<ref bean="policyComponent" />
+			</property>
+			<property name="legacySyncManager" ref="legacySyncManager" />
+			<property name="deleteLegacySyncManager" ref="deleteLegacySyncManager" />
+			<property name="nodeService" ref="NodeService"/>
+	</bean> 
+	
+     <bean id="transformToMPEG4Policy"
+		  class="gov.uspto.trademark.cms.repo.policies.TransformToMPEG4Policy"
+		  init-method="init">
+		<property name="policyComponent" ref="policyComponent" />
+		<property name="serviceRegistry" ref="ServiceRegistry" />
+	</bean>
+	
+     <bean id="multimediaDeletePolicy" class="gov.uspto.trademark.cms.repo.policies.MultimediaDeletePolicy" init-method="init">
+	</bean>	
+
+</beans>

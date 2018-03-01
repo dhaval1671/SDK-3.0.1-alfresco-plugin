@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve Original Content</shortname>
+    <description>Returns the Original content</description>
+    <url>/cms/rest/v1/case/{id}/{docType}/{fileName}/original?accessLevel={accessLevel?}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve Legacy Content</shortname>
+    <description>Returns the Legacy content</description>
+    <url>/cms/rest/case/{sn}/legacy/{fileName}?version={version-number}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

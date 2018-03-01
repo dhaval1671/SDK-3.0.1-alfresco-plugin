@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Summary Metadata</shortname>
+    <description>Returns the Summary metadata</description>
+    <url>/cms/rest/drive/e-file/{id}/{fileName}/metadata?version={version-number}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

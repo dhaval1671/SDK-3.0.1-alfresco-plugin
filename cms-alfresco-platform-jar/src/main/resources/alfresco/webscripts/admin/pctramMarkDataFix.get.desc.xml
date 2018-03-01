@@ -1,0 +1,8 @@
+<webscript>
+   <shortname>Update marks</shortname>
+   <description>Update file name and access level for all marks in production while deploying Sprint19.</description>
+   <url>/admin/mark/{serialNumber}/{fileName}/dataFix</url>
+   <authentication>guest</authentication>
+   <transaction>required</transaction>
+   <family>cms</family>
+</webscript>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+<!-- 
+	<bean id="cabinet_docLib_drive" class="org.alfresco.repo.module.ImporterModuleComponent" parent="module.baseComponent">
+    
+     <property name="moduleId" value="cms-alfresco-platform-jar" />
+     <property name="name" value="Alfresco Platform/Repository JAR Module" />
+     <property name="description" value="Load top level folders" />
+     <property name="sinceVersion" value="1.0-SNAPSHOT" />
+     <property name="appliesFromVersion" value="1.0-SNAPSHOT" />
+   
+    
+     <property name="importer" ref="spacesBootstrap"/>
+     <property name="bootstrapViews">
+      <list>
+       <props>
+        <prop key="path">/${spaces.company_home.childname}</prop>
+        <prop key="location">alfresco/module/cms-alfresco-platform-jar/bootstrap/top-level-folders-without-full-2a-evi-lib.acp</prop>
+       </props>
+      </list>
+     </property>
+   
+    </bean>
+ -->	
+</beans>

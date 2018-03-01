@@ -1,0 +1,37 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Update Evidence Metadata</shortname>
+    <description><![CDATA[
+		Update Evidence Metadata:<br/>
+		-----------<br/>
+		Alfresco URL: PUT: localhost:8080/alfresco/s/cms/evidence/update<br/>  
+		-----------<br/>  
+		select 'Form' as the body type in your REST client.<br/>
+		Pass below parameters:<br/>
+		sn - 11111111<br/>
+		Assumptions about 'sn' parameter<br/>
+		a) 'sn' is mandatory parameter.<br/>		
+		-----------<br/>
+		metadata - <br/>
+				{<br/>
+				    "createdByUserId": "CoderX",<br/>
+				    "modifiedByUserId": "metFor1.2",<br/>
+				    "mailDate": "2013-06-25T07:41:19.000-04:00",<br/>
+				    "documentName": "myTM"<br/>
+				}<br/>
+		Assumptions about 'metadata' parameter<br/>
+		a) 'metadata' is mandatory parameter.<br/>				
+		-----------<br/>
+		fileName - 1_Vesrion1.0.bmp<br/>
+		Assumptions about 'fileName' parameter<br/>
+		a) 'fileName' is a mandatory parameter.<br/>
+		b) fileName is used by API to internally searches the exact evidence file to update by its name.<br/>
+		c) Using this API, client can only update metadata of the evidence BUT NOT the content, as it is NOT supported by API.<br/>
+		-----------<br/>
+		select "content-type: multipart/form-data".<br/>
+	]]></description>
+    <url>/cms/rest/case/{sn}/evidence/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

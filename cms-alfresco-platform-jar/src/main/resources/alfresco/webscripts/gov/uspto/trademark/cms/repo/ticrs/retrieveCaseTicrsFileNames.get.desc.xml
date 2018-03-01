@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Case TICRS filenames</shortname>
+    <description>Retrieve Case Documents filename which are migrated from TICRS</description>
+    <url>/cms/rest/case/ticrs/filenames/{id}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

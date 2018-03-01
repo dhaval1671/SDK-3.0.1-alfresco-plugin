@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Evidence All File Names</shortname>
+    <description>Returns a list of evidence files for a given set of serial numbers</description>
+    <url>/cms/rest/cases/{sn}/evidences</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

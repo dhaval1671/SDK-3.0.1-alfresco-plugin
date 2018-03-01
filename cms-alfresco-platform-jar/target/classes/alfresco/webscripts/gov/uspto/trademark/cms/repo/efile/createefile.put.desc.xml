@@ -1,0 +1,14 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Create Summary</shortname>
+    <description><![CDATA[
+		Create Summary:<br/>
+		-----------<br/>
+		Alfresco URL: PUT: localhost:8080/alfresco/s/cms/rest/drive/e-file/{id}/{fileName}<br/>  
+		-----------<br/>  
+	]]></description>
+    <url>/cms/rest/drive/e-file/{id}/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

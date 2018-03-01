@@ -1,0 +1,10 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Alfresco hello api</shortname>
+    <description>this rest api returns 200 as http status code</description>
+    <url>/health/hello</url>
+    <authentication runas="system">none</authentication>
+    <transaction>none</transaction>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

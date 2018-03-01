@@ -1,0 +1,13 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Copy multiple efiles to multiple serial numbers</shortname>
+    <description><![CDATA[
+		Copy multiple efiles to multiple serial numbers:<br/>
+		-----------<br/>
+	]]></description>
+    <url>/cms/rest/drive/e-file/submission</url>
+    <authentication>admin</authentication>
+    <transaction>none</transaction>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

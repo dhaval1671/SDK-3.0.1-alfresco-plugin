@@ -1,0 +1,13 @@
+{
+  "modifiedByUserId" : "User XYZ",
+  "sourceSystem" : "TMNG",
+  "sourceMedia" : "electronic",
+  "sourceMedium" : "upload",
+  "accessLevel" : "internal",
+  "scanDate" : "2014-04-23T13:42:24.962-04:00",
+  "evidenceSourceType" : "OA",
+  "evidenceSourceTypeId" : "123",
+  "evidenceSourceUrl" : "http://local/evidence/source/url",
+  "evidenceGroupNames" : [ "trash", "working", "suggested" ],
+  "evidenceCategory" : "lexisnexis"
+}

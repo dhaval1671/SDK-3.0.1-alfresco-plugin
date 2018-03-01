@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Mark Properties</shortname>
+    <description>Returns the case properties for the serial numbers provided in the query string</description>
+    <url>/cms/rest/case/{sn}/metadata</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

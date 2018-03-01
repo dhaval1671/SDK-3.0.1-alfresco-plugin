@@ -1,0 +1,10 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve Legal-Proceeeding Document Metadata</shortname>
+    <description>Returns Legal-Proceeeding Document metadata</description>
+    <url>/cms/rest/legal-proceeding/{id}/{docType}/{fileName}/metadata?version={version-number}&amp;accessLevel={accessLevel?}</url>
+    <authentication>admin</authentication>
+    <transaction>none</transaction>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve Ticrs Document Attachment Content</shortname>
+    <description>Returns Ticrs Document Attachment content</description>
+    <url>/cms/rest/v1/case/{id}/{docType}/{fileName}/attachment?version={version-number}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

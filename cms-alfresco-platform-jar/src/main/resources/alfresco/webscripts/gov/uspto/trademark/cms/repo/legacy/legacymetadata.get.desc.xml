@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Legacy Metadata</shortname>
+    <description>Returns the Legacy metadata</description>
+    <url>/cms/rest/case/{sn}/legacy/{fileName}/metadata?version={version-number}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

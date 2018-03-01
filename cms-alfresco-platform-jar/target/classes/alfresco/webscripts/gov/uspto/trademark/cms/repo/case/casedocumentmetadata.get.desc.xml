@@ -1,0 +1,10 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Mark Properties</shortname>
+    <description>Returns the mark properties for the serial numbers provided in the query string</description>
+    <url>/cms/rest/case/{sn}/documents/metadata?filterKey={filter-key?}&amp;filterValue={filter-value?}&amp;accessLevel={accessLevel?}</url>
+    <authentication>admin</authentication>
+    <transaction>none</transaction>    
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

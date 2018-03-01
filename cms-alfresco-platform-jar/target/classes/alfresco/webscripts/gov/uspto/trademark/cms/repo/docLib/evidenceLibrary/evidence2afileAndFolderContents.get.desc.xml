@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve File Content from Evidence Library</shortname>
+    <description>Get An Evidence file content from Evidence Library</description>
+    <url>/cms/rest/{path}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Create Madrid Document Webscript</shortname>
+    <description></description>
+    <url>/cms/rest/madridib/{id}/{docType}/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

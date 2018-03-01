@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- Legal-proceeding related webscript definitions -->
+<beans>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.legal-proceeding.lpCreatedocument.put"
+          class="gov.uspto.trademark.cms.repo.webscripts.legalproceeding.CreateLegalProceedingWebScript"
+          parent="webscript">
+    </bean>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.legal-proceeding.lpRetrieveContent.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.legalproceeding.RetrieveLegalProceedingContentWebScript"
+          parent="webscript">
+    </bean>  
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.legal-proceeding.lpRetrieveMetadata.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.legalproceeding.RetrieveLegalProceedingMetadataWebScript"
+          parent="webscript">
+    </bean> 
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.legal-proceeding.retrieveAllLPDocumentMetadata.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.legalproceeding.RetrieveAllLPDocumentsMetadataWebScript"
+          parent="webscript">
+    </bean>    
+
+    <bean id="webscript.gov.uspto.trademark.cms.repo.legal-proceeding.retrieveMetadataFrMultipleLegalProceedingNumbers.post"
+          class="gov.uspto.trademark.cms.repo.webscripts.legalproceeding.RetrieveMetadataFrMultipleLegalProceedingNumbersWebScript"
+          parent="webscript">
+    </bean>
+    
+</beans>

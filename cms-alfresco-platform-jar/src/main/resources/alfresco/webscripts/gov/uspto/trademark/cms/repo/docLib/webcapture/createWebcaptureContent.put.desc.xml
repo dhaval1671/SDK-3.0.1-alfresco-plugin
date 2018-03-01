@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Create content inside WebCapture</shortname>
+    <description>Create content inside "Company Home > Document_Library > WebCapture > 99020 > {fileName}"</description>
+    <url>/cms/rest/libraries/webcapture/{userid}/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

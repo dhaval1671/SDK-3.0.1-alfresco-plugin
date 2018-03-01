@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <!-- The bootstrap-context.xml file is used for patch definitions, importers, 
+		 workflow, and loading custom content models.  -->
+
+
+    <!-- Registration of new models -->
+    <bean id="cms-alfresco-repo-amp.dictionaryBootstrap" parent="dictionaryModelBootstrap" depends-on="dictionaryBootstrap">
+        <property name="models">
+            <list>
+                <value>alfresco/module/${project.artifactId}/model/content-model.xml</value>
+                <value>alfresco/module/${project.artifactId}/model/workflow-model.xml</value>
+            </list>
+        </property>
+    </bean>
+	
+<bean id="moduleService" class="org.alfresco.repo.module.CustomModuleServiceImpl">
+      <!-- Uses ModuleComponentHelper which requires the ServiceRegistry -->
+      <property name="serviceRegistry" ref="ServiceRegistry" />
+      <property name="descriptorService" ref="DescriptorService" />
+      <property name="registryService" ref="RegistryService" />
+      <property name="tenantAdminService" ref="tenantAdminService" />
+	  <property name="degradeModuleAllow">
+            <value>${module.degrade.allow}</value>
+        </property>
+        <property name="moduleList">
+            <value>${module.degrade.list}</value>
+        </property>
+   </bean>
+
+</beans>

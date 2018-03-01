@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve Redacted Response Metadata</shortname>
+    <description>Returns the Redacted Response Metadata</description>
+    <url>/cms/rest/v1/case/{id}/{docType}/{fileName}/redaction/metadata</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

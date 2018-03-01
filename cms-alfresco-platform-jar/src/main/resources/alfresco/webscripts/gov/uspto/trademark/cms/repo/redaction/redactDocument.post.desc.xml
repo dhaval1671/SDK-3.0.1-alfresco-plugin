@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Redact Document</shortname>
+    <description>Redact Document</description>
+    <url>/cms/rest/v1/case/{id}/{docType}/{fileName}/redaction</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

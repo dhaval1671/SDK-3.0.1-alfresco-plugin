@@ -1,0 +1,18 @@
+<!DOCTYPE xml>
+<!-- 
+This webscript is been marked for deprecation. [in Sprint 04]
+US75589 - TA302965, TA302967
+US74875 - TA294850, TA294852
+To be deprecated in Sprint 05 or 06
+
+Only this file "deleteevidence.delete.desc.xml" need to go away as 
+newly created POST "deleteevidence.post.desc.xml" replaces the existing functionlaity.
+ -->
+<webscript>
+    <shortname>Delete Evidences</shortname>
+    <description>Delete Evidences from given serial number for given file names.</description>
+    <url>/cms/rest/case/{sn}/evidences</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

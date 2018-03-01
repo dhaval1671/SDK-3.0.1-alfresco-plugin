@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- Core and miscellaneous bean definitions -->
+<beans>
+
+    <bean id="webscript.gov.uspto.trademark.cms.repo.docLib.webcapture.createWebcaptureContent.put"
+          class="gov.uspto.trademark.cms.repo.webscripts.doclib.webcapture.CreateWebcaptureContentWebScript"
+          parent="webscript">
+    </bean>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.docLib.webcapture.renameWebcaptureContent.post"
+          class="gov.uspto.trademark.cms.repo.webscripts.doclib.webcapture.RenameWebcaptureWebScript"
+          parent="webscript">
+    </bean>
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.docLib.webcapture.deleteWebcaptureContent.delete"
+          class="gov.uspto.trademark.cms.repo.webscripts.doclib.webcapture.DeleteWebcaptureWebScript"
+          parent="webscript">
+    </bean>    
+
+</beans>

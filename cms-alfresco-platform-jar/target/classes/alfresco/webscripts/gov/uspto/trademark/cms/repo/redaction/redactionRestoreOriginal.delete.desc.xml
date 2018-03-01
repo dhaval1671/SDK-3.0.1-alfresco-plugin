@@ -1,0 +1,11 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Restore the document to original version</shortname>
+    <description><![CDATA[
+        Restore the document to original version<br/>
+    ]]></description>
+    <url>/cms/rest/v1/case/{id}/{docType}/{fileName}/redaction</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

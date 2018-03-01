@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- Alfresco health status related webscript definitions -->
+<beans>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.healthstatus.alfrescohello.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.healthstatus.AlfrescoHelloWebScript"
+          parent="webscript">
+    </bean>
+    
+	<bean id="fileContentStore" class="org.alfresco.repo.content.filestore.FileContentStore">
+	    <constructor-arg>
+	       <value>${dir.contentstore}</value>
+	    </constructor-arg>
+	</bean>    
+    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.healthstatus.alfrescohealthstatus.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.healthstatus.AlfrescoHealthStatusWebScript"
+          parent="webscript"
+          depends-on="fileContentStore">
+    </bean>
+</beans>

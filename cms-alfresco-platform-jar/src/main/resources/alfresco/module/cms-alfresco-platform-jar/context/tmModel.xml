@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<model name="tm:trademarkmodel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+    <!-- Imports are required to allow references to definitions in other models -->
+    <imports>
+        <!-- Import Alfresco Dictionary Definitions -->
+        <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+
+        <!-- Import Alfresco Content Domain Model Definitions -->
+        <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+    </imports>
+
+    <!-- Introduction of new namespaces defined by this model -->
+    <namespaces>
+        <namespace uri="http://www.uspto.gov/cms/model/content/1.0" prefix="tm"/>
+    </namespaces>
+    <types>
+
+        <type name="tm:content">
+            <title>Trademark Content Type</title>
+            <parent>cm:content</parent>
+            <properties>
+                <property name="tm:documentName">
+                    <type>d:text</type>
+                    <mandatory enforced='true'>true</mandatory>
+                    <index enabled="true">
+                        <tokenised>both</tokenised>
+                    </index>
+                    <constraints>
+                        <constraint ref="cm:filename"/>
+                    </constraints>
+                </property>
+            </properties>
+        </type>
+        
+        <type name="tm:legal-proceeding">
+            <title>Legal Proceeding Document</title>
+            <parent>tm:content</parent>
+            <properties>
+                <property name="tm:proceedingNumber">
+                    <type>d:text</type>
+                    <mandatory enforced='true'>true</mandatory>
+                    <index enabled="true">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+                <property name="tm:proceedingType">
+                <!-- Sample values EXA, OPP, EXT -->
+                    <type>d:text</type>
+                </property>
+                <property name="tm:entryDate">
+                    <type>d:datetime</type>
+                </property>
+                <property name="tm:identifier">
+                    <type>d:int</type>
+                </property>
+            </properties>
+            <mandatory-aspects>
+            	<aspect>tm:migrated</aspect>
+                <aspect>tm:acl</aspect>
+                <aspect>tm:businessVersionRelated</aspect>
+                <aspect>cm:versionable</aspect>
+            </mandatory-aspects>
+        </type>
+        
+        <type name="tm:pleading">
+            <title>Pleadings TTAB</title>
+            <parent>tm:legal-proceeding</parent>
+        </type>   
+        <type name="tm:motion">
+            <title>Motions TTAB</title>
+            <parent>tm:legal-proceeding</parent>
+        </type> 
+        <type name="tm:exhibit">
+            <title>Exhibits TTAB</title>
+            <parent>tm:legal-proceeding</parent>
+        </type>
+        <type name="tm:brief">
+            <title>Briefs TTAB</title>
+            <parent>tm:legal-proceeding</parent>
+        </type> 
+        <type name="tm:order">
+            <title>Orders TTAB</title>
+            <parent>tm:legal-proceeding</parent>
+        </type>   
+        <type name="tm:decision">
+            <title>Decisions TTAB</title>
+            <parent>tm:legal-proceeding</parent>
+        </type> 
+        <type name="tm:undesignated">
+            <title>Undesignated TTAB</title>
+            <parent>tm:legal-proceeding</parent>
+        </type>   
+
+        <!-- Enterprise-wide generic document type -->
+        <type name="tm:document">
+            <title>Trademark Document</title>
+            <parent>tm:content</parent>
+            <properties>
+                <property name="tm:documentAlias">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:createdByUserId">
+                    <type>d:text</type>
+                    <index enabled="true">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+                <property name="tm:modifiedByUserId">
+                    <type>d:text</type>
+                    <index enabled="true">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+                <property name="tm:redactionLevel">
+                    <type>d:text</type>
+                    <default>None</default>
+                </property>                 
+            </properties>
+            <associations>
+                <association name="tm:convertedMpeg4">
+                    <source>
+                        <mandatory>true</mandatory>
+                        <many>true</many>
+                    </source>
+                    <target>
+                        <class>tm:document</class>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </target>
+                </association>            
+                <association name="tm:originalSourceMedia">
+                    <source>
+                        <mandatory>true</mandatory>
+                        <many>true</many>
+                    </source>
+                    <target>
+                        <class>tm:document</class>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </target>
+                </association>            
+            </associations>            
+            <mandatory-aspects>
+                <aspect>tm:acl</aspect>
+                <aspect>cm:versionable</aspect>
+            </mandatory-aspects>
+        </type>
+        
+        <type name="tm:mark">
+            <title>Official Trademark Image</title>
+            <parent>tm:document</parent>
+            <properties>
+            </properties>
+            <mandatory-aspects>
+                <aspect>cm:versionable</aspect>
+                <aspect>tm:businessVersionRelated</aspect>
+            </mandatory-aspects>
+        </type>        
+        <type name="tm:evidence">
+            <title>Trademark Case</title>
+            <parent>tm:document</parent>
+            <associations>
+                <association name="tm:relatedOfficeAction">
+                    <source>
+                        <mandatory>true</mandatory>
+                        <many>true</many>
+                    </source>
+                    <target>
+                        <class>tm:office-action</class>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </target>
+                </association>
+            </associations>
+            <mandatory-aspects>
+                <aspect>tm:evidenceRelated</aspect>
+            </mandatory-aspects>
+        </type>
+
+        <type name="tm:office-action">
+            <title>Office Action Type</title>
+            <parent>tm:document</parent>
+            <associations>
+                <association name="tm:relatedEvidence">
+                    <source>
+                        <mandatory>true</mandatory>
+                        <many>true</many>
+                    </source>
+                    <target>
+                        <class>tm:evidence</class>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </target>
+                </association>
+            </associations>
+        </type>
+
+        <type name="tm:note">
+            <title>Public Note Type</title>
+            <parent>tm:document</parent>
+        </type>
+
+        <type name="tm:legacy">
+            <title>Legacy Type</title>
+            <parent>tm:document</parent>
+            <mandatory-aspects>
+                <aspect>tm:migrated</aspect>
+                <aspect>tm:legacyDocumentType</aspect>
+            </mandatory-aspects>            
+        </type>
+
+        <type name="tm:notice">
+            <title>Notice Type</title>
+            <parent>tm:document</parent>
+        </type>
+
+        <type name="tm:summary">
+            <title>Summary Type</title>
+            <parent>tm:document</parent>
+        </type>
+
+        <type name="tm:response">
+            <title>Response Type</title>
+            <parent>tm:document</parent>
+        </type>
+
+        <type name="tm:signature">
+            <title>Signature Type</title>
+            <parent>tm:document</parent>
+        </type>
+
+        <type name="tm:withdrawal">
+            <title>Withdrawal Type</title>
+            <parent>tm:document</parent>
+        </type>
+
+        <type name="tm:official-gazette">
+            <title>Electronic Official Gazette</title>
+            <parent>tm:content</parent>
+        </type>
+
+        <type name="tm:id-manual">
+            <title>ID Manual</title>
+            <parent>tm:content</parent>
+        </type>
+        
+        <type name="tm:madrid">
+            <title>Madrid IB Documents</title>
+            <parent>tm:content</parent>
+        </type>        
+
+        <type name="tm:e-file">
+            <title>eFile content type</title>
+            <parent>tm:content</parent>
+            <properties>
+                <property name="tm:trademarkId">
+                    <type>d:text</type>
+                    <mandatory enforced='true'>true</mandatory>
+                    <index enabled="true">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+            </properties>
+            <mandatory-aspects>
+                <aspect>cm:versionable</aspect>
+            </mandatory-aspects>
+        </type>
+
+        <type name="tm:ais">
+            <title>Legacy AIS Document</title>
+            <parent>tm:content</parent>
+            <mandatory-aspects>
+                <aspect>tm:migrated</aspect>
+            </mandatory-aspects>
+        </type>
+
+        <type name="tm:tramASIS">
+        	<title>TRAM ASIS Multimedia File</title>
+        	<parent>tm:ais</parent>
+            <properties>        	
+        	  <property name="tm:tramId">
+                    <type>d:int</type>
+                </property>
+                <property name="tm:tramSerialNumber">
+                    <type>d:int</type>
+                </property>
+                <property name="tm:tramDateReceived">
+                    <type>d:datetime</type>
+                </property>
+                <property name="tm:tramQuantity">
+                    <type>d:int</type>
+                </property>
+                <property name="tm:tramCategory">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramFileName">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramFileType">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramFileSize">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramComments">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramConvertedInTram">
+                    <type>d:boolean</type>
+                </property>
+                <property name="tm:tramCondition">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramLocation">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramImagePdfInTicrs">
+                    <type>d:boolean</type>
+                </property>
+                <property name="tm:tramReceiptType">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramConvertedFileName">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramConvertedFileType">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramConvertedFileSize">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramConversionComments">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramConversionDate">
+                    <type>d:datetime</type>
+                </property>
+                <property name="tm:tramConversionRequestedBy">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramParentSerialNumber">
+                    <type>d:int</type>
+                </property>
+                <property name="tm:tramChildSerialNumber">
+                    <type>d:int</type>
+                </property>
+                <property name="tm:tramDivisionRequestedBy">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramDateOfDivision">
+                    <type>d:datetime</type>
+                </property>
+                <property name="tm:tramDivisionComments">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tramChildUploadDate">
+                    <type>d:datetime</type>
+                </property>
+            </properties>                
+        </type>
+        <type name="tm:ticrsDocument">
+            <title>Document Page</title>
+            <parent>tm:ais</parent>
+            <properties>
+                <property name="tm:ticrsDocTimestamp">
+                    <type>d:datetime</type>
+                </property>
+                <property name="tm:batchID">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:displayRestrictedIndicator">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:tiffLocation">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:hashDigestID">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:ticrsDocPageNumber">
+                    <title>Page Number</title>
+                    <type>d:int</type>
+                </property>
+            </properties>
+            <mandatory-aspects>
+                <aspect>tm:legacyDocumentType</aspect>
+            </mandatory-aspects>
+        </type>
+
+        <type name="tm:receipt">
+            <title>A receipt document type</title>
+            <parent>tm:document</parent>
+        </type>
+
+        <type name="tm:attachment">
+            <title>A receipt document type</title>
+            <parent>tm:document</parent>
+        </type>
+
+        <type name="tm:specimen">
+            <title>A Specimen document type</title>
+            <parent>tm:document</parent>
+        </type>
+
+        <type name="tm:application">
+            <title>An Application document type</title>
+            <parent>tm:document</parent>
+        </type>
+        
+        <type name="tm:registration-certificate">
+            <title>A Registration Certificate document type</title>
+            <parent>tm:document</parent>
+        </type>
+        
+        <type name="tm:updated-registration-certificate">
+            <title>An Updated-Registration-Certificate document type</title>
+            <parent>tm:document</parent>
+        </type>
+        
+        <type name="tm:teaspdf">
+            <title>A TEAS pdf document type</title>
+            <parent>tm:document</parent>
+        </type>        
+
+        <!-- Folder type to designate that it is a top-level business cabinet -->
+        <!-- Enterprise-wide generic folder type -->
+        <type name="tm:folder">
+            <title>Trademark Folder</title>
+            <parent>cm:folder</parent>
+        </type>
+
+        <type name="tm:cabinet">
+            <title>Trademark Cabinet</title>
+            <parent>cm:folder</parent>
+        </type>
+
+        <type name="tm:caseFolder">
+            <title>Case Folder</title>
+            <parent>tm:folder</parent>
+        </type>
+        <type name="tm:proceedingNumberFolder">
+            <title>Proceeding Number Folder</title>
+            <parent>tm:folder</parent>
+        </type>        
+        <type name="tm:submissionFolder">
+            <title>Submission Folder</title>
+            <parent>tm:folder</parent>
+        </type>
+
+        <type name="tm:efileFolder">
+            <title>eFile Top level Folder</title>
+            <parent>tm:folder</parent>
+        </type>
+		<type name="tm:tramFolder">
+            <title>tram Top level Folder</title>
+            <parent>tm:folder</parent>
+        </type>
+        <type name="tm:eogFolder">
+            <title>EOG Folder type</title>
+            <parent>tm:folder</parent>
+        </type>
+
+        <type name="tm:idmFolder">
+            <title>IDM Folder type</title>
+            <parent>tm:folder</parent>
+        </type>
+
+    </types>
+
+    <aspects>
+
+        <aspect name="tm:redactedDocument">
+            <title>This aspect gets applied to all the redacted document</title>
+            <properties>            
+                <property name="tm:originalDocumentVersion">
+                    <type>d:text</type>
+                    <mandatory enforced='true'>true</mandatory>
+                    <index enabled="false">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+            </properties>                
+        </aspect>
+
+        <aspect name="tm:imageMark">
+            <title>This aspect gets applied to all the image Mark type</title>
+            <properties></properties>
+        </aspect>
+
+        <aspect name="tm:multimediaMark">
+            <title>This aspect gets applied to all the multimedia Mark type</title>
+            <properties></properties>
+        </aspect>
+
+        <aspect name="tm:caseRelated">
+            <title>Case Related</title>
+            <properties>
+                <property name="tm:serialNumber">
+                    <type>d:text</type>
+                    <mandatory enforced='true'>true</mandatory>
+                    <index enabled="true">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+            </properties>
+        </aspect>
+
+        <aspect name="tm:legacyDocumentType">
+            <title>Legacy Business Document Types</title>
+            <properties>
+                <property name="tm:docCode">
+                    <type>d:text</type>
+                    <mandatory enforced='true'>true</mandatory>
+                </property>
+                <property name="tm:legacyCategory">
+                    <type>d:text</type>
+                    <index enabled="true">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+            </properties>
+        </aspect>
+
+        <aspect name="tm:imageRelated">
+            <title>Image Related Properties</title>
+            <properties>
+                <property name="tm:imageHeight">
+                    <type>d:int</type>
+                </property>
+                <property name="tm:imageWidth">
+                    <type>d:int</type>
+                </property>
+                <property name="tm:imageResolutionX">
+                    <type>d:int</type>
+                </property>
+                <property name="tm:imageResolutionY">
+                    <type>d:int</type>
+                </property>
+                <property name="tm:imageColorDepth">
+                    <type>d:int</type>
+                </property>
+                <property name="tm:imageCompressionType">
+                    <type>d:text</type>
+                    <index enabled="true">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+            </properties>
+        </aspect>
+
+        <aspect name="tm:businessVersionRelated">
+            <title>Business Version Related</title>
+            <properties>
+                <property name="tm:effectiveStartDate">
+                    <type>d:datetime</type>
+                    <mandatory enforced='true'>true</mandatory>
+                </property>
+                <property name="tm:effectiveEndDate">
+                    <type>d:datetime</type>
+                </property>
+                <property name="tm:isBusinessVersion">
+                    <type>d:boolean</type>
+                    <default>true</default>
+                </property>
+            </properties>
+        </aspect>
+
+        <aspect name="tm:evidenceRelated">
+            <title>Evidence Related</title>
+            <properties>
+                <property name="tm:sourceURL">
+                    <type>d:text</type>
+                    <index enabled="true">
+                        <tokenised>both</tokenised>
+                    </index>
+                </property>
+                <property name="tm:sourceType">
+                    <type>d:text</type>
+                    <!-- mandatory enforced='true'>true</mandatory -->
+                    <index enabled="true">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+                <!-- US1245: Office Action Evidence Bin model changes Pragmatics :April/11/2014-->
+                <property name="tm:sourceReference">
+                    <type>d:text</type>
+                    <!-- mandatory enforced='true'>true</mandatory -->
+                </property>
+                <!-- Actual SourceType: e.g., Office Action,Serial Number,User ID -->
+                <property name="tm:groupName">
+                    <type>d:text</type>
+                    <multiple>true</multiple>
+                </property>
+                <!-- evidenceCategory: e.g., LexisNexis -->
+                <property name="tm:evidenceCategory">
+                    <type>d:text</type>
+                    <mandatory enforced='true'>true</mandatory>
+                </property>
+                <!-- US1245: End of changes :April/11/2014-->
+            </properties>
+        </aspect>
+
+        <aspect name="tm:pcmRelated">
+        	<title>PCTRAM Related Properties</title>
+        	<properties>
+        		<property name="tm:pcm-ABSN">
+        			<type>d:int</type>
+        		</property>
+        		<property name="tm:pcm-AFN">
+        			<type>d:int</type>
+        		</property>
+        		<property name="tm:pcm-lastModifiedDate">
+        			<type>d:datetime</type>
+        		</property>
+        		<property name="tm:pcm-oracleApplyTime">
+        			<type>d:datetime</type>
+        		</property>
+        		<property name="tm:pcm-noteNum">
+        			<type>d:int</type>
+        		</property>
+        		<property name="tm:pcm-createDateTime">
+        			<type>d:datetime</type>
+        		</property>
+        		<property name="tm:pcm-fileSize">
+        			<type>d:long</type>
+        		</property>
+        		<property name="tm:pcm-fileSuffix">
+        			<type>d:text</type>
+        		</property>
+        		<property name="tm:pcm-mediaType">
+        			<type>d:text</type>
+        		</property>
+        		<property name="tm:pcm-originalFileName">
+        			<type>d:text</type>
+        		</property>
+        		<property name="tm:pcm-replaceDateTime">
+        			<type>d:datetime</type>
+        		</property>
+        		<property name="tm:pcm-replaceBySeqNum">
+        			<type>d:int</type>
+        		</property>
+        		<property name="tm:pcm-rsn">
+        			<type>d:float</type>
+        		</property>
+        		<property name="tm:pcm-seqNum">
+        			<type>d:int</type>
+        		</property>
+        		<property name="tm:pcm-updateDateTime">
+        			<type>d:datetime</type>
+        		</property>
+        	</properties>
+        </aspect>
+        <aspect name="tm:multimediaRelated">
+            <title>Multimedia Related Properties</title>
+            <properties>
+                <property name="tm:codecAudio">
+                    <type>d:text</type>
+                    <index enabled="true">
+                        <tokenised>both</tokenised>
+                    </index>
+                </property>
+                <property name="tm:audioCompressionType">
+                    <type>d:text</type>
+                    <index enabled="true">
+                        <tokenised>both</tokenised>
+                    </index>
+                </property>
+                <property name="tm:codecVideo">
+                    <type>d:text</type>
+                    <index enabled="true">
+                        <tokenised>both</tokenised>
+                    </index>
+                </property>
+                <property name="tm:videoCompressionType">
+                    <type>d:text</type>
+                    <index enabled="true">
+                        <tokenised>both</tokenised>
+                    </index>
+                </property>
+
+                <property name="tm:mm-Duration">
+                    <type>d:text</type>
+                    <index enabled="true">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+                <property name="tm:mm-StartTime">
+                    <type>d:text</type>
+                    <index enabled="true">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+                <property name="tm:mm-Comment">
+                    <type>d:text</type>
+                </property>
+                <!-- US4280: Data model properties changes added by Pragmatics-->
+                <property name="tm:active">
+                    <type>d:boolean</type>
+                </property>
+                <property name="tm:supported">
+                    <type>d:boolean</type>
+                </property>
+                <property name="tm:converted">
+                    <type>d:boolean</type>
+                </property>
+                <property name="tm:cont-cd">
+                    <type>d:text</type>
+                </property>
+                <property name="tm:description">
+                    <type>d:text</type>
+                </property>
+            </properties>
+        </aspect>
+
+        <aspect name="tm:migrated">
+            <title>Indicates migration from a legacy system</title>
+            <properties>
+                <property name="tm:migrationMethod">
+                    <type>d:text</type>
+                    <mandatory enforced='true'>true</mandatory>
+                    <index enabled="false">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+                <!-- Identifier for the legacy repository from which the document migrated	-->
+                <property name="tm:migrationSource">
+                    <type>d:text</type>
+                    <mandatory enforced='true'>true</mandatory>
+                    <index enabled="false">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+            </properties>
+        </aspect>
+
+        <aspect name="tm:applicationDates">
+            <properties>
+                <property name="tm:loadDate">
+                    <type>d:datetime</type>
+                    <index enabled="false">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+                <property name="tm:scanDate">
+                    <type>d:datetime</type>
+                    <index enabled="false">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+                <property name="tm:mailDate">
+                    <type>d:datetime</type>
+                    <index enabled="false">
+                        <tokenised>false</tokenised>
+                    </index>
+                </property>
+            </properties>
+        </aspect>
+
+        <aspect name="tm:applicationSource">
+            <properties>        
+	            <property name="tm:sourceMedia">
+	                <type>d:text</type>
+	                <index enabled="false">
+	                    <tokenised>false</tokenised>
+	                </index>
+	            </property>
+	            <property name="tm:sourceMedium">
+	                <type>d:text</type>
+	                <index enabled="false">
+	                    <tokenised>false</tokenised>
+	                </index>
+	            </property>
+            </properties>            
+        </aspect>
+
+        <aspect name="tm:acl">
+            <title>This aspect is used to identify if document is Public or for internal use</title>
+            <properties>
+                <property name="tm:accessLevel">
+                    <type>d:text</type>
+                    <default>internal</default>
+                </property>
+            </properties>
+        </aspect>
+
+        <aspect name="tm:efileAspect">
+            <title>Dynamic properties for type efile.</title>
+            <properties>
+                <property name="tm:customProperties">
+                    <type>d:any</type>
+                </property>
+            </properties>
+        </aspect>
+
+        <aspect name="tm:legacySync">
+            <title>Legacy Source Synchronization properties.</title>
+            <properties>
+                <property name="tm:lastTICRSSyncDate">
+                    <type>d:datetime</type>
+                </property>
+                <property name="tm:ticrsDocCount">
+                    <type>d:int</type>
+                </property>
+                <property name="tm:lastTICRSASISSyncDate">
+                    <type>d:datetime</type>
+                </property>
+                <property name="tm:ticrsASISDocCount">
+                    <type>d:int</type>
+                </property>
+            </properties>
+        </aspect>
+        
+        <aspect name="tm:evidenceBankAspect">
+            <title>This aspect holds attributes to decorate Evidence Bank content.</title>
+            <properties>
+                <property name="tm:source">
+                    <type>d:text</type>
+                </property>
+            </properties>
+        </aspect>        
+        <aspect name="tm:noRendition">
+            <title>This aspect gets applied to all the marks having no rendition</title>
+            <properties></properties>
+        </aspect>
+
+    </aspects>
+</model>

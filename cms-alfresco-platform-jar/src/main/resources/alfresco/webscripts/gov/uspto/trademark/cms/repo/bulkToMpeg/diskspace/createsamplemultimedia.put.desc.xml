@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Create Webscript</shortname>
+    <description></description>
+    <url>/cms/rest/v1/case/createsamplemultimedia/{numberOfSampleFilesToBeCreated}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Mark Rendition</shortname>
+    <description>Returns the mark rendition for the serial numbers provided in the query string</description>
+    <url>/cms/rest/case/{sn}/mark/{fileName}/rendition/{format}?version={version-number}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

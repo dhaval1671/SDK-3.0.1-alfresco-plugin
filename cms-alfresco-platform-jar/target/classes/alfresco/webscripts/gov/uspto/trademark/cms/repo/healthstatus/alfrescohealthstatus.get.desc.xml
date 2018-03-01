@@ -1,0 +1,10 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Alfresco health status api</shortname>
+    <description>this rest api returns json object as response on successful invokation</description>
+    <url>/health/status</url>
+    <authentication runas="admin">none</authentication>
+    <transaction>none</transaction>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

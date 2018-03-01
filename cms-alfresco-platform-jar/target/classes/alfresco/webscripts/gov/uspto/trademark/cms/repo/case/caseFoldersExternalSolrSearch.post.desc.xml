@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Search TMNG case documents</shortname>
+    <description>This service invokes full text seearch on case documents.</description>
+    <url>/cms/rest/cases/external/solr/search/content</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

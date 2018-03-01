@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Validate DTOs against model</shortname>
+    <description>Validates DTO types with alfresco model types</description>
+    <url>/cms/validate/{testCaseName}/{paramOne}/{paramTwo}/{paramThree}</url>
+    <authentication runas="admin">user</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

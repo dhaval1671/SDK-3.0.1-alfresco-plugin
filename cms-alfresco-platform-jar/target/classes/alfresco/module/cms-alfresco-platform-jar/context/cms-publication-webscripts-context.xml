@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<!-- Publication folder/s related webscript definitions -->
+<beans>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.publication.createPublication.put"
+          class="gov.uspto.trademark.cms.repo.webscripts.publication.CreatePublicationWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.publication.updatepublication.post"
+          class="gov.uspto.trademark.cms.repo.webscripts.publication.UpdatePublicationWebScript"
+          parent="webscript">
+    </bean>    
+    <bean id="webscript.gov.uspto.trademark.cms.repo.publication.retrievepublicationcontent.get"
+          class="gov.uspto.trademark.cms.repo.webscripts.publication.RetrievePublicationContentWebScript"
+          parent="webscript">
+    </bean>
+    <bean id="webscript.gov.uspto.trademark.cms.repo.publication.deletepublication.delete"
+          class="gov.uspto.trademark.cms.repo.webscripts.publication.DeletePublicationWebScript"
+          parent="webscript">
+    </bean>
+</beans>

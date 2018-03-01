@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve Summary Content</shortname>
+    <description>Returns the Summary content</description>
+    <url>/cms/rest/drive/e-file/{id}/{fileName}?version={version-number}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

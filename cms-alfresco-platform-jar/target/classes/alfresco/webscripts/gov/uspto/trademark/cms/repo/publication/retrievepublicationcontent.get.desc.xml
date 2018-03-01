@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Retrieve Publication Content</shortname>
+    <description>Returns Publication content</description>
+    <url>/cms/rest/publication/{id}/{pub}/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

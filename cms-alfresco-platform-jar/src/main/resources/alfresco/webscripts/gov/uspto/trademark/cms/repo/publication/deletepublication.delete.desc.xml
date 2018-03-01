@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Delete Publication</shortname>
+    <description>Delete Publication(IDManual).</description>
+    <url>/cms/rest/publication/{id}/{pub}/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>

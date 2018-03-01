@@ -1,0 +1,11 @@
+<!DOCTYPE xml>
+<webscript>
+    <shortname>Create Legacy</shortname>
+    <description><![CDATA[
+		Create Legacy:<br/>
+	]]></description>
+    <url>/cms/rest/case/{sn}/legacyz/{fileName}</url>
+    <authentication>admin</authentication>
+    <format default="">argument</format>
+    <family>cms</family>
+</webscript>
